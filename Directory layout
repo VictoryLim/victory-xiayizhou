@@ -1,0 +1,10 @@
+victory-xiayizhou/
+├─ config.toml
+├─ content/
+│   └─ _index.md
+├─ static/
+│   └─ css/style.css
+├─ layouts/
+│   └─ index.html
+└─ themes/
+    └─ victory‑theme/   ←(optional: place future partials/components here)
