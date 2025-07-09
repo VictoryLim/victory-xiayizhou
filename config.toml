@@ -1,0 +1,15 @@
+baseURL       = "https://victorylim.github.io/victory-xiayizhou/"
+languageCode  = "en-us"
+title         = "昼色宇宙"
+# pick your preferred theme name once you grow it
+theme         = "victory-theme"
+summaryLength = 42
+enableRobotsTXT = true
+
+[params]
+  description  = "A shared galaxy for Victory × 夏以昼"
+  primaryColor = "#5c3c8c"   # 深紫 – 夏以昼瞳色
+  accentColor  = "#ff9b5f"   # 霞光橙
+  victoryRed   = "#bb2121"   # 橙调车厘子红（利利红）
+  galaxyBlue   = "#6a8aff"   # 银河蓝
+  duskPink     = "#f7b4ff"   # 霞光粉
