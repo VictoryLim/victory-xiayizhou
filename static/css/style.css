@@ -1,24 +1,131 @@
-/* ——昼色宇宙 base theme—— */
-:root{
-  --primary:#5c3c8c; /* 深紫 */
-  --accent:#ff9b5f;  /* 霞光橙 */
-  --victory:#bb2121; /* 利利红 */
-  --dusk:#f7b4ff;   /* 霞光粉 */
-  --galaxy:#6a8aff; /* 银河蓝 */
-  --bg:#f2e9e4;     /* 柔米白 */
+/* 昼色宇宙扩展版 */
+
+/* 1. 定义主题颜色变量 */
+:root {
+  --deep-purple: #5c3c8c;   /* 夏以昼瞳色 */
+  --warm-orange: #ff9b5f;   /* 霞光橙 */
+  --victory-red: #bb2121;   /* 利利红 */
+  --dusk-pink:   #f7b4ff;   /* 霞光粉 */
+  --galaxy-blue: #6a8aff;   /* 银河蓝 */
+  --base-light:  #f2e9e4;   /* 柔米白背景 */
+  --text-dark:   #333;
+  --card-bg:     rgba(255,255,255,0.85);
+  --border-radius: 8px;
+  --shadow:      0 4px 12px rgba(0,0,0,0.1);
 }
-body{
-  margin:0;font-family:system-ui, sans-serif;background:var(--bg);color:#333;
+
+/* 2. 全局设置 */
+* {
+  box-sizing: border-box;
 }
-.hero{
-  min-height:60vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
-  background:linear-gradient(135deg,var(--primary) 0%,var(--accent) 50%,var(--dusk) 100%);
-  color:#fff;padding:2rem 1rem;
+body {
+  margin: 0;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: linear-gradient(180deg, var(--deep-purple), var(--galaxy-blue));
+  color: var(--text-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
-.hero h1{margin:0;font-size:3rem;letter-spacing:0.05em;}
-.entries{max-width:50rem;margin:3rem auto;padding:0 1rem;}
-article{margin-bottom:2.5rem;border-left:4px solid var(--primary);padding-left:1rem;}
-article h2{margin:0 0 .5rem;color:var(--primary);}
-article h2 a{text-decoration:none;color:inherit;}
-article p{margin:0;color:#555;}
-footer{padding:1rem;text-align:center;color:#666;}
+
+/* 星空背景层：用伪元素叠加星星 */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 40%),
+    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 50%),
+    radial-gradient(circle at 50% 10%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 50%);
+  background-size: 100% 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* 3. 页眉样式 */
+header {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  color: white;
+}
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+  letter-spacing: 0.1em;
+  color: var(--warm-orange);
+}
+header p {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--dusk-pink);
+}
+
+/* 4. 主体内容 */
+main {
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+}
+
+/* 卡片样式，用于文章列表或自定义区块 */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+  padding: 1.2rem 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: var(--deep-purple);
+  font-size: 1.6rem;
+}
+.card p {
+  margin: 0.5rem 0 0;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* 5. 链接和按钮 */
+a {
+  color: var(--galaxy-blue);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--warm-orange);
+  text-decoration: underline;
+}
+
+/* 自定义按钮类 */
+.button {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  margin-top: 0.5rem;
+  background: var(--victory-red);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s, transform 0.1s;
+}
+.button:hover {
+  background: var(--warm-orange);
+}
+.button:active {
+  transform: translateY(1px);
+}
+
+/* 6. 页脚 */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+}
